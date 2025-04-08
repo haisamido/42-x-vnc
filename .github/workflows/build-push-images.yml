@@ -8,7 +8,6 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: 42-x-vnc
 
 jobs:
 
@@ -42,6 +41,8 @@ jobs:
           context: .
           push: true
           platforms: linux/amd64
-          tags: ${{ env.REGISTRY }}/${{ github.repository }}:${{ github.ref_name }}, ${{ env.REGISTRY }}/${{ github.repository }}:latest
+          tags: ${{ env.REGISTRY }}/${{ github.repository }}:latest
           labels: ${{ steps.meta.outputs.labels }}
+
+#${{ env.REGISTRY }}/${{ github.repository }}:${{ github.ref_name }},
 # ,linux/arm64
