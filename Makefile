@@ -45,6 +45,7 @@ up-prebuilt: ## Bring up 42 from a pre-built image from a remote registry
 		--name ${CONTAINER_NAME_PB} \
 		--hostname ${CONTAINER_NAME_PB} \
 		--volume ${HOME}/.ssh:/root/.ssh \
+		--volume ${HOME}/.gitconfig:/root/.gitconfig \
 		--volume ${PWD}/entrypoint.sh:/entrypoint.sh \
 		--volume ${PWD}/startapp.sh:/startapp.sh \
 		-p ${EXTERNAL_VNC_PORT_PB}:${INTERNAL_PORT} \
@@ -65,6 +66,7 @@ up: | down build ## Bring up 42 via podman/docker, in x/vnc system
 		--name ${CONTAINER_NAME} \
 		--hostname ${CONTAINER_NAME} \
 		--volume ${HOME}/.ssh:/root/.ssh \
+		--volume ${HOME}/.gitconfig:/root/.gitconfig \
 		--volume ${PWD}/entrypoint.sh:/entrypoint.sh \
 		--volume ${PWD}/startapp.sh:/startapp.sh \
 		-p ${EXTERNAL_VNC_PORT}:${INTERNAL_PORT} \

@@ -41,6 +41,9 @@ RUN apt-get update && \
 RUN git clone --recurse-submodules -b ${GIT_BRANCH} -j2 ${GIT_URL}
 RUN cd ./42 && make 
 
+COPY .bashrc.local /root/.bashrc.local
+RUN cat /root/.bashrc.local >> /root/.bashrc
+
 COPY entrypoint.sh /entrypoint.sh
 
 COPY startapp.sh /startapp.sh
