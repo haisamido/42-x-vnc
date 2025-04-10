@@ -52,8 +52,6 @@ up-prebuilt: ## Bring up 42 from a pre-built image from a remote registry
 		${IMAGE_URI_PREBUILT} && \
 		$(MAKE) info EXTERNAL_VNC_PORT=${EXTERNAL_VNC_PORT_PB}
 
-#		--volume ${PWD}:/42 \
-
 build: ## Build 42 podman/docker image
 	${CONTAINER_BIN} build \
 		--file ${DOCKERFILE} \
@@ -72,8 +70,6 @@ up: | down build ## Bring up 42 via podman/docker, in x/vnc system
 		-p ${EXTERNAL_VNC_PORT}:${INTERNAL_PORT} \
 		${IMAGE_URI} && \
 		$(MAKE) info
-
-# 		--volume ${PWD}:/42 \
 
 down: ## Bring down 42 container
 	${CONTAINER_BIN} stop ${CONTAINER_NAME} || true
