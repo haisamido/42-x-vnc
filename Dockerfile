@@ -41,6 +41,7 @@ RUN cat /root/.bashrc.local >> /root/.bashrc
 
 COPY entrypoint.sh /entrypoint.sh
 
+
 COPY startapp.sh /startapp.sh
 
 CMD ["/entrypoint.sh"]
